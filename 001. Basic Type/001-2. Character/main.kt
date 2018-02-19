@@ -40,9 +40,9 @@ fun main(args: Array<String>) {
         다음 특수문자를 지원한다.
 
         \t          : 탭
-        \b          :
+        \b          : 백스페이스
         \n          : 개행
-        \r          :
+        \r          : 캐리지 리턴
         \'          : 작은 따옴표 출력
         \"          : 큰 따옴표 출력
         \\          : \ 출력
@@ -53,14 +53,10 @@ fun main(args: Array<String>) {
     println('\uFF00') //그 예시다
 
     //  숫자와 마찬가지로, 문자도 null 가능 레퍼런스가 필요하면 박싱된다.
-    val c: Char = 'C'
+    val c: Char = '1'
 
     val boxedC: Char? = c
     val anotherBoxedC: Char? = c
 
-    // 박싱 연산을 하면 동일성은 유지되지 않는다.
-    println(boxedC === anotherBoxedC)
-
-    // 하지만 값의 동등함은 유지한다.
-    println(boxedC == anotherBoxedC)
+    // 그리고 박싱 연산을 하면 동일성은 유지되지 않는다.
 }

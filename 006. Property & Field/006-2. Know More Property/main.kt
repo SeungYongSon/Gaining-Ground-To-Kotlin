@@ -54,3 +54,30 @@ class MainActivity : AppCompatActivity() {
 */
 
 
+/***** 프로퍼티 오버라이딩 ****/
+/*
+프로퍼티 오버라이딩은 메서드 오버라이딩과 유사하게 동작한다.
+상위클래스에 선언된 프로퍼티를 하위 클래스에 재선언하려면 override 를 사용해야 호환되는 타입을 사용해야 한다.
+선언한 프로퍼티는 initializer 를 가진 프로퍼티나 getter 메서드를 가진 프로퍼티로 오버라이딩 할 수 있다.
+*/
+open class Foo{
+    open val x: Int
+        get() = this.x
+}
+
+class Bar : Foo(){
+    override val x: Int = 10
+}
+/*
+더 나아가 val 프로퍼티를 var 프로퍼티로 재정의 할 수 있다. 하지만 그 반대는 안된다.
+이게 허용되는 이유는, var 프로퍼티는 근본적으로 getter 메서드를 선언하는데
+그것을 var 로 오버라이딩하면 추가로 하위 클래스에서 setter 메서드를 선언하기 때문이다.
+*/
+// 주요 생성자에 선언한 프로퍼티에도 override 키워드를 사용할 수 있다.
+interface Oof{
+    val count: Int
+}
+class Bar1(override val count: Int) : Oof
+class Bar2 : Oof{
+    override val count: Int = 0
+}

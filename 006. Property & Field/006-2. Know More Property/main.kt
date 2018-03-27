@@ -66,7 +66,8 @@ open class Foo{
 }
 
 class Bar : Foo(){
-    override val x: Int = 10
+    override val x: Int
+		get() = 264
 }
 /*
 더 나아가 val 프로퍼티를 var 프로퍼티로 재정의 할 수 있다. 하지만 그 반대는 안된다.
